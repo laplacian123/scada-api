@@ -1,16 +1,15 @@
 from typing import Optional
 from fastapi import FastAPI
-from router import blog_get
-from router import blog_post
-from router import user_temp
+from router import partition_get
+from router import partition_post
 from db.database import engine
 from db import models
 
 
 app = FastAPI()
 app.include_router(user_temp.router)
-app.include_router(blog_get.router)
-app.include_router(blog_post.router)
+app.include_router(partition_get.router)
+app.include_router(partition_post.router)
 
 @app.get('/hello')
 def index():

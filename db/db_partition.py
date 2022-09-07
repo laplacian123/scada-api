@@ -1,10 +1,8 @@
-from db.hash import Hash
 from sqlalchemy.orm.session import Session
-from schemas import UserBase
+from schemas import Partition
 from db.models import DbPartition
 
-
-def create_partition(db: Session, request: UserBase):
+def create_partition(db: Session, request: Partition):
     new_partition = DbPartition(name = request.name)
     db.add(new_partition)
     db.commit()

@@ -1,6 +1,10 @@
-from fastapi import APIRouter, Response, status
+from fastapi import APIRouter, Response, status, Depends
 from enum import Enum
 from typing import Optional
+from db import db_partition
+from schemas import Partition
+
+
 
 router = APIRouter(
     prefix='/partition',
@@ -9,12 +13,8 @@ router = APIRouter(
 
 
 
-@router.get(
-    '/all',
-    summary='Retrieve all partitions',
-    description='This api call fetches all partitions',
-    response_description="The list of available partitions"
-    )
-def get_all_partitions():
-    # TODO: code to fetch all partitions
-    return {'message': }
+
+
+@router.get('/all', response_model = List[Partition])
+def get_all_partitions(db: Session = Depends(get_db)):
+    return db_partition.get_all_partitions(db)
