@@ -18,7 +18,7 @@ CREATE TABLE [POINT] (
   [point_id] int PRIMARY KEY IDENTITY(1, 1),
   [name] nvarchar(255) UNIQUE NOT NULL,
   [partition_id] int NOT NULL,
-  [type] nvarchar(255) NOT NULL CHECK ([type] IN ('AI', 'DI', 'DO', 'SDI'))
+  [type] nvarchar(5) NOT NULL CHECK ([type] IN ('AI', 'DI', 'DO', 'SDI'))
 )
 GO
 

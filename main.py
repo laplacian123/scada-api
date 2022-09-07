@@ -7,7 +7,6 @@ from db import models
 
 
 app = FastAPI()
-app.include_router(user_temp.router)
 app.include_router(partition_get.router)
 app.include_router(partition_post.router)
 
