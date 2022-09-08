@@ -2,8 +2,8 @@ from sqlalchemy.orm.session import Session
 from schemas import *
 from db.models import *
 
-def create_partition(db: Session, request: Partition):
-    new_partition = DbPartition(partition_id = 0, name = request.name)
+def create_partition(db: Session, request: PartitionPost):
+    new_partition = DbPartition(name = request.name)
     db.add(new_partition)
     db.commit()
     db.refresh(new_partition)

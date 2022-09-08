@@ -17,7 +17,7 @@ router = APIRouter(
 
 
 
-@router.get("/all", response_model = List[Partition])
+@router.get("/all", response_model = List[PartitionGet])
 def get_all_partitions(db: Session = Depends(get_db)):
     return db_partition.get_all_partitions(db)
 

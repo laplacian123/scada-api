@@ -2,23 +2,26 @@ from pydantic import BaseModel, Field
 from typing import Optional
 
 
-class Partition(BaseModel):
+class PartitionPost(BaseModel):
+    name: str
+
+class PartitionGet(BaseModel):
     partition_id: Optional[int] = Field(default = None, primary_key=True)
     name: str
 
 class Point(BaseModel):
-    point_id: int
+    point_id: Optional[int] = Field(default = None, primary_key=True)
     name: str
     partition_id: int
     type: str
 
 class Element(BaseModel):
-    elem_id: int
+    elem_id: Optional[int] = Field(default = None, primary_key=True)
     name: str
     point_id: int
 
 class AiList(BaseModel):
-    ai_id: int
+    ai_id: Optional[int] = Field(default = None, primary_key=True)
     name: str
     point_id: int
     data_type: str
@@ -28,7 +31,7 @@ class AiList(BaseModel):
     max: float
 
 class DiList(BaseModel):
-    di_id: int
+    di_id: Optional[int] = Field(default = None, primary_key=True)
     name: str
     point_id: int
     point_num: int
