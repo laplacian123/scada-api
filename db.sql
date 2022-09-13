@@ -273,7 +273,7 @@ GO
 
 CREATE TABLE [BUTTON_TREE_NODES] (
   [node_id] int PRIMARY KEY IDENTITY(1, 1),
-  [parent_node_id] int NOT NULL,
+  [parent_node_id] int,
   [link] nvarchar(784)
 )
 GO

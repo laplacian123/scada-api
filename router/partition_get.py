@@ -17,13 +17,13 @@ router = APIRouter(
 
 
 
-@router.get("/all", response_model = List[PartitionGet])
+@router.get("/all")
 def get_all_partitions(db: Session = Depends(get_db)):
-    return db_partition.get_all_partitions(db)
+    return {"data": db_partition.get_all_partitions(db)}
 
 
-@router.get("/first", response_model = List[DiList])
+@router.get("/first")
 def get_first_partition(db: Session = Depends(get_db)):
-    return db_partition.get_di_by_partition(db, 1)
+    return {"data": db_partition.get_di_by_partition(db, 1)}
 
 

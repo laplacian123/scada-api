@@ -6,8 +6,10 @@ class PartitionPost(BaseModel):
     name: str
 
 class PartitionGet(BaseModel):
-    partition_id: Optional[int] = Field(default = None, primary_key=True)
+    partition_id: int
     name: str
+    class Config():
+        orm_mode = True
 
 class Point(BaseModel):
     point_id: Optional[int] = Field(default = None, primary_key=True)
